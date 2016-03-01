@@ -207,6 +207,7 @@ form fieldset.actions a:hover {
 }
 
 #lists p {
+  float: right;
   display: inline-block;
   width: 5%;
   font-size: 0.9em;
