@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans">
     <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
     <link rel="stylesheet" href="/stylesheets/application.css">
+    <script src="/javascripts/jquery-2.2.1.js"></script>
+    <script src="/javascripts/application.js"></script>
   </head>
   <body>
     <header>
       <h1>Todo Tracker</h1>
       <div class="actions">
-        <%= yield_content :header_links %>
+        <%== yield_content :header_links %>
       </div>
     </header>
 
@@ -27,8 +29,14 @@
       </div>
     <% end %>
 
+    <% if session[:list_not_found] %>
+      <div class="flash error">
+        <p><%= session.delete(:list_not_found) %></p>
+      </div>
+    <% end %>
+
     <main>
-      <%= yield %>
+      <%== yield %>
     </main>
   </body>
 </html>
